@@ -1,0 +1,43 @@
+Config {
+        overrideRedirect = False
+        dpi = 144
+      , font = "Inconsolata 14"
+      , fgColor = "#F8F8F2"
+      , bgColor = "#404356"
+      , position = TopH 30
+      , lowerOnStart = True
+      , commands = [
+                Run Cpu [
+                        "-L", "3"
+                      , "-H", "50"
+                      , "--high", "red"
+                      , "--normal", "green"
+                    ] 10
+              , Run DynNetwork [
+                        "-t", "Net: ▼ <rx> ▲ <tx>"
+                      , "-H", "200"
+                      , "-L", "10"
+                      , "-h", "gray90"
+                      , "-l", "gray90"
+                      , "-n", "gray90"
+                    ] 10
+             , Run Battery [
+                        "--template", "Batt: <acstatus>"
+                      , "--Low", "10"
+                      , "--High", "80"
+                      , "--low", "#F25555"
+                      , "--normal", "gray90"
+                      , "--high", "#7CCC86"
+                      , "--"
+                      , "-o", "<left>% (<timeleft>)"
+                      , "-O", "<fc=#7CCC86>Charging</fc>"
+                      , "-i", "<fc=#7CCC86>Charged</fc>"
+                    ] 50
+              , Run Memory ["--template", "Mem: <usedratio>%"] 10
+              , Run Date "%a %Y-%m-%dT%H:%M:%S" "date" 10
+              , Run XMonadLog
+            ]
+      , sepChar  = "%"
+      , alignSep = "}{"
+      , template = "%XMonadLog% }{ %battery% | %dynnetwork% | %cpu% | %memory% | %date% "
+    }
