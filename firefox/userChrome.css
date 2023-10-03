@@ -1,0 +1,23 @@
+/* Hide native tabs */
+#TabsToolbar {
+    visibility: collapse;
+}
+
+/* Remove sidebar header of tree-style tabs */
+#sidebar-box[sidebarcommand="treestyletab_piro_sakura_ne_jp-sidebar-action"] #sidebar-header {
+    display: none;
+}
+
+/* Remove back button circle */
+#back-button:not(:hover),
+#back-button:not(:hover) > .toolbarbutton-icon {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+#back-button:hover,
+#back-button:hover > .toolbarbutton-icon {
+    border: none !important;
+    border-radius: 2px !important;
+}

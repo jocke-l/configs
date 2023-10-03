@@ -1,0 +1,31 @@
+[user]
+	email = saario.joakim@gmail.com
+	name = Joakim Saario
+	signingKey = 6358EAE5A48B36F43DE93B0CD8B76D271B7BD453
+
+[core]
+	excludesfile = /home/jocke/.gitignore
+
+[init]
+	defaultBranch = main
+
+[submodule]
+	recurse = true
+
+[stash]
+	showPatch = true
+
+[commit]
+	gpgSign = true
+
+[pull]
+	ff = only
+
+[push]
+	default = simple
+
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
